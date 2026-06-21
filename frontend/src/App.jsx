@@ -1,4 +1,4 @@
-import AdminRoute from './components/AdminRoute';
+import AdminRoute from './components/AdminRoute.jsx';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
