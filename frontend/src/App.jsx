@@ -1,3 +1,4 @@
+import AdminRoute from './components/AdminRoute';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -34,7 +35,16 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/admin" element={<AdminDashboard />} />
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AdminDashboard />
+              </AdminRoute>
+            }
+          />
+
+
           <Route path="/create-event" element={<CreateEvent />} />
           <Route path="/edit-event/:id" element={<EditEvent />} />
         </Routes>
