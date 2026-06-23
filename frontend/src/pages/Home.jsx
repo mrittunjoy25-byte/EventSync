@@ -17,7 +17,7 @@ const Home = () => {
     const fetchStats = async () => {
       try {
         const { data } = await axios.get(
-          'http://localhost:5000/api/stats'
+          'https://eventsync-oqg7.onrender.com/api/stats'
         );
         setStats(data);
       } catch (error) {
@@ -29,7 +29,7 @@ const Home = () => {
         const token = localStorage.getItem('token');
 
         const { data } = await axios.get(
-          'http://localhost:5000/api/events',
+          'https://eventsync-oqg7.onrender.com/api/events',
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ const Home = () => {
       const token = localStorage.getItem('token');
 
       await axios.delete(
-        `http://localhost:5000/api/events/${id}`,
+        `https://eventsync-oqg7.onrender.com/api/events/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -252,7 +252,7 @@ shadow-xl
           >
             {event.banner && (
               <img
-                src={`http://localhost:5000${event.banner}`}
+               src={`https://eventsync-oqg7.onrender.com${event.banner}`}
                 alt={event.title}
                 className="w-full max-h-96 object-contain rounded-xl mb-4 bg-gray-100" />
             )}
@@ -274,7 +274,7 @@ shadow-xl
                   const token = localStorage.getItem('token');
 
                   await axios.post(
-                    'http://localhost:5000/api/registrations',
+                    'https://eventsync-oqg7.onrender.com/api/registrations',
                     {
                       eventId: event._id,
                     },
