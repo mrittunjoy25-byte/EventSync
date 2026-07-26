@@ -1,8 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
-  const token = localStorage.getItem('token');
-  const user = JSON.parse(localStorage.getItem('user'));
+  const location = useLocation();
+
+  const [token, setToken] = useState(localStorage.getItem('token'));
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem('user'))
+  );
+
+  useEffect(() => {
+    setToken(localStorage.getItem('token'));
+    setUser(JSON.parse(localStorage.getItem('user')));
+  }, [location]);
 
   return (
     <header className="
