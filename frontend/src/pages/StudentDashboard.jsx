@@ -19,6 +19,8 @@ const StudentDashboard = () => {
         );
 
         console.log("Registrations:", data.registrations);
+
+        setRegistrations(data.registrations);
       } catch (error) {
         console.error(error);
       }
