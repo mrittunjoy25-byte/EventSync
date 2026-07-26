@@ -1,6 +1,22 @@
+const express = require('express');
+const { body } = require('express-validator');
+const upload = require('../middleware/uploadMiddleware');
+const { protect, authorizeRoles } = require('../middleware/authMiddleware');
+const {
+  listEvents,
+  getEvent,
+  createEvent,
+  updateEvent,
+  deleteEvent,
+} = require('../controllers/eventController');
+
+const router = express.Router();
+
+// Public routes
 router.get('/', listEvents);
 router.get('/:id', getEvent);
 
+// Admin only
 router.post(
   '/',
   protect,
@@ -14,5 +30,19 @@ router.post(
   createEvent
 );
 
-router.put('/:id', protect, authorizeRoles('admin'), upload.single('banner'), updateEvent);
-router.delete('/:id', protect, authorizeRoles('admin'), deleteEvent);
+router.put(
+  '/:id',
+  protect,
+  authorizeRoles('admin'),
+  upload.single('banner'),
+  updateEvent
+);
+
+router.delete(
+  '/:id',
+  protect,
+  authorizeRoles('admin'),
+  deleteEvent
+);
+
+module.exports = router;
