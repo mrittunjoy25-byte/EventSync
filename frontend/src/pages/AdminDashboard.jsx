@@ -35,7 +35,10 @@ const AdminDashboard = () => {
           }
         );
 
-        setRegistrations(data.registrations);
+        console.log("REGISTRATIONS API:", data);
+console.log("REGISTRATIONS:", data.registrations);
+
+setRegistrations(data.registrations);
       } catch (error) {
         console.error(error);
       }

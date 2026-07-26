@@ -18,7 +18,7 @@ const StudentDashboard = () => {
           }
         );
 
-        setRegistrations(data.registrations);
+        console.log("Registrations:", data.registrations);
       } catch (error) {
         console.error(error);
       }
@@ -64,32 +64,68 @@ border border-cyan-500/20 rounded-3xl shadow-lg p-6">
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-lg p-6">
+        <div
+          className="
+bg-slate-900/60
+backdrop-blur-lg
+border
+border-cyan-500/20
+rounded-3xl
+shadow-lg
+p-6
+text-white
+"
+        >
           <h2 className="text-xl font-bold">
             Upcoming Events
           </h2>
 
-          <p className="text-5xl mt-4 text-cyan-600">
-            0
+          <p className="text-5xl mt-4 text-cyan-400">
+            {registrations.length}
+          </p>
+
+          <p className="mt-3 text-slate-300">
+            Upcoming registrations
           </p>
         </div>
       </div>
 
       {/* Registered Events */}
-      <div className="bg-white rounded-3xl shadow-lg p-6 mt-8">
+      <div
+        className="
+bg-slate-900/60
+backdrop-blur-lg
+border
+border-cyan-500/20
+rounded-3xl
+shadow-lg
+p-6
+mt-8
+text-white
+"
+      >
         <h2 className="text-2xl font-bold mb-4">
           My Registered Events
         </h2>
 
         {registrations.length === 0 ? (
-          <p className="text-slate-600">
+          <p className="text-slate-300">
             No events registered yet.
           </p>
         ) : (
           registrations.map((reg) => (
             <div
               key={reg._id}
-              className="border rounded-xl p-4 mb-4"
+              className="
+rounded-2xl
+bg-slate-800/70
+border
+border-cyan-500/20
+p-5
+mb-4
+hover:border-cyan-400
+transition
+"
             >
               <h3 className="font-bold text-lg">
                 {reg.eventId?.title}
@@ -103,8 +139,11 @@ border border-cyan-500/20 rounded-3xl shadow-lg p-6">
                 📅 {new Date(reg.eventId?.date).toLocaleDateString()}
               </p>
 
-              <p>
-                Status: {reg.status}
+              <p className="mt-2">
+                Status :
+                <span className="ml-2 text-green-400 font-semibold">
+                  {reg.status}
+                </span>
               </p>
             </div>
           ))
@@ -112,12 +151,24 @@ border border-cyan-500/20 rounded-3xl shadow-lg p-6">
       </div>
 
       {/* Notifications */}
-      <div className="bg-white rounded-3xl shadow-lg p-6 mt-8">
+      <div
+        className="
+bg-slate-900/60
+backdrop-blur-lg
+border
+border-cyan-500/20
+rounded-3xl
+shadow-lg
+p-6
+mt-8
+text-white
+"
+      >
         <h2 className="text-2xl font-bold mb-4">
           Notifications
         </h2>
 
-        <p className="text-slate-600">
+        <p className="text-slate-300">
           No notifications available.
         </p>
       </div>
