@@ -16,12 +16,16 @@ const register = async (req, res) => {
   const user = await User.create({ name, email, password: hashedPassword, department, semester, phone });
 
   res.status(201).json({
-    _id: user._id,
-    name: user.name,
-    email: user.email,
-    role: user.role,
-    token: generateToken(user._id),
-  });
+  _id: user._id,
+  name: user.name,
+  email: user.email,
+  role: user.role,
+  department: user.department,
+  semester: user.semester,
+  phone: user.phone,
+  profileImage: user.profileImage,
+  token: generateToken(user._id),
+});
 };
 
 const login = async (req, res) => {
@@ -32,14 +36,17 @@ const login = async (req, res) => {
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
 
-  res.json({
-    _id: user._id,
-    name: user.name,
-    email: user.email,
-    role: user.role,
-    profileImage: user.profileImage,
-    token: generateToken(user._id),
-  });
+ res.json({
+  _id: user._id,
+  name: user.name,
+  email: user.email,
+  role: user.role,
+  department: user.department,
+  semester: user.semester,
+  phone: user.phone,
+  profileImage: user.profileImage,
+  token: generateToken(user._id),
+});
 };
 
 const forgotPassword = async (req, res) => {

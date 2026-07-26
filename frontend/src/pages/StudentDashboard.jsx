@@ -10,7 +10,7 @@ const StudentDashboard = () => {
         const token = localStorage.getItem('token');
 
         const { data } = await axios.get(
-          'http://localhost:5000/api/registrations',
+          'https://eventsync-oqg7.onrender.com/api/registrations',
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -27,7 +27,7 @@ const AdminDashboard = () => {
         const token = localStorage.getItem('token');
 
         const { data } = await axios.get(
-          'http://localhost:5000/api/registrations',
+          'https://eventsync-oqg7.onrender.com/api/registrations',
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ const AdminDashboard = () => {
     const fetchStats = async () => {
       try {
         const { data } = await axios.get(
-          'http://localhost:5000/api/stats'
+          'https://eventsync-oqg7.onrender.com/api/stats'
         );
 
         setStats(data);
@@ -61,7 +61,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:5000/api/registrations/${id}`,
+        `https://eventsync-oqg7.onrender.com/api/registrations/${id}`,
         { status },
         {
           headers: {

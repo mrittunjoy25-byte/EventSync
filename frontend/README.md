@@ -8,7 +8,7 @@ This frontend uses React, Vite, Tailwind CSS, React Router, React Hook Form, Axi
 
 1. `cd frontend`
 2. `npm install`
-3. Create `.env` with `VITE_API_URL=http://localhost:5000/api`
+3. Create `.env` with `VITE_API_URL=https://eventsync-oqg7.onrender.com/api
 4. `npm run dev`
 
 ## Notes

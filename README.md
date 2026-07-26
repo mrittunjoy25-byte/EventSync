@@ -29,4 +29,4 @@ This repository contains a full-stack College Event Management System.
 
 - Backend runs on port 5000 by default.
 - Frontend runs on port 5173 by default.
-- Use `http://localhost:5000/api` as API base URL in frontend env.
+- Use(https://eventsync-oqg7.onrender.com/api) as API base URL in frontend env.
