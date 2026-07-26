@@ -1,33 +1,35 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const StudentDashboard = () => {
-  const user = JSON.parse(localStorage.getItem('user'));
-  const [registrations, setRegistrations] = useState([]);
-  useEffect(() => {
-    const fetchRegistrations = async () => {
-      try {
-        const token = localStorage.getItem('token');
+useEffect(() => {
+  const fetchRegistrations = async () => {
+    try {
+      const token = localStorage.getItem('token');
 
-        const { data } = await axios.get(
-          'https://eventsync-oqg7.onrender.com/api/registrations',
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+      const { data } = await axios.get(
+        'https://eventsync-oqg7.onrender.com/api/registrations',
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-        console.log("Registrations:", data.registrations);
+      console.log("API Response:", data);
 
-        setRegistrations(data.registrations);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+      setRegistrations(data.registrations);
 
-    fetchRegistrations();
-  }, []);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  fetchRegistrations();
+}, []);
+
+useEffect(() => {
+  console.log("Current State:", registrations);
+}, [registrations]);
   return (
     <div className="max-w-6xl mx-auto p-6">
 
@@ -177,6 +179,6 @@ text-white
 
     </div>
   );
-};
+
 
 export default StudentDashboard;
